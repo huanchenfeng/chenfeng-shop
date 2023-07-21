@@ -15,6 +15,9 @@
         <module>chenfengmall-order</module>
         <module>chenfengmall-product</module>
         <module>chenfengmall-ware</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>chenfengmall-common</module>
     </modules>
 
 
