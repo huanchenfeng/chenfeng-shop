@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.chenfeng.chenfengmall</groupId>
-    <artifactId>chenfengmall-member</artifactId>
+    <artifactId>chenfengmall-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>chenfengmall-member</name>
-    <description>晨风商城-会员服务</description>
+    <name>chenfengmall-gateway</name>
+    <description>API网关</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,22 +21,14 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -75,7 +67,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.chenfeng.chenfengmall.member.ChenfengmallMemberApplication</mainClass>
+                    <mainClass>com.chenfeng.chenfengmall.gateway.ChenfengmallGatewayApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
