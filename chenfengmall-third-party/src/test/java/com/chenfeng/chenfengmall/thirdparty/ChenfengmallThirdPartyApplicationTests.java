@@ -17,7 +17,7 @@ class ChenfengmallThirdPartyApplicationTests {
     @Test
     public void testUpload() throws FileNotFoundException {
 //        // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
-\
+
 //        // 创建OSSClient实例。
 //        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId,accessKeySecret);
         InputStream inputStream = new FileInputStream("C:\\Users\\梦幻晨风\\Desktop\\项目图像\\002.jpg");
