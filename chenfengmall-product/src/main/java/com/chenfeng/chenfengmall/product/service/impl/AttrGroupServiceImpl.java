@@ -11,6 +11,7 @@ import com.chenfeng.common.utils.Query;
 import com.chenfeng.chenfengmall.product.dao.AttrGroupDao;
 import com.chenfeng.chenfengmall.product.entity.AttrGroupEntity;
 import com.chenfeng.chenfengmall.product.service.AttrGroupService;
+import org.springframework.util.StringUtils;
 
 
 @Service("attrGroupService")
@@ -24,6 +25,24 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public PageUtils queryPage(Map<String, Object> params, long catelogId) {
+        String key = (String) params.get("key");
+        QueryWrapper<AttrGroupEntity> wrapper = new QueryWrapper<AttrGroupEntity>();
+        if(StringUtils.hasText(key)){
+            wrapper.and((obj)->{obj.eq("attr_group_id",key).or().like("attr_group_name",key);
+            });
+        }
+        if(catelogId==0){
+            IPage<AttrGroupEntity> page = this.page(new Query<AttrGroupEntity>().getPage(params), new QueryWrapper<AttrGroupEntity>());
+            return new PageUtils(page);
+        }else {
+            wrapper.eq("catelog_id",catelogId);
+            IPage<AttrGroupEntity> page = this.page(new Query<AttrGroupEntity>().getPage(params),wrapper );
+            return new PageUtils(page);
+        }
     }
 
 }

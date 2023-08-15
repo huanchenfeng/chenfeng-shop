@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import org.omg.CosNaming.NamingContextPackage.NotEmpty;
 
 /**
  * 商品三级分类
@@ -64,6 +66,7 @@ public class CategoryEntity implements Serializable {
 	/**
 	 * 子分类
 	 */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@TableField(exist = false)
 	private List<CategoryEntity> children;
 
